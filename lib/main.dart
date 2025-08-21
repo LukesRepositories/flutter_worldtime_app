@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Scaffold(
+    home: Home()
+  ));
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal[400],
-        
+
         title: Text("Hello, world!"),
         centerTitle: true,
       ),
@@ -18,18 +25,17 @@ void main() {
             letterSpacing: 2.0,
             fontFamily: 'Ravie',
           ),
-          // What is my question?""
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Text("Tap"),
         onPressed: (){},
         backgroundColor: Colors.teal[400],
+        child: Text("Tap"),
       ),
-    ),
-  ),
-  );
+    );
+  }
 }
+
 
 /*
 class MyApp extends StatelessWidget {
