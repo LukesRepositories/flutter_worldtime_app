@@ -4,17 +4,27 @@ void main() {
   runApp(MaterialApp(
     home: Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.teal[400],
         
         title: Text("Hello, world!"),
         centerTitle: true,
       ),
       body: Center(
-        child: Text("What is my question?"),
+        child: Text(
+          "What is my question?",
+          style: TextStyle(
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2.0,
+            fontFamily: 'Ravie',
+          ),
+          // What is my question?""
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Text("Tap"),
-        onPressed: null,
+        onPressed: (){},
+        backgroundColor: Colors.teal[400],
       ),
     ),
   ),
