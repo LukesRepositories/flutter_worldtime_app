@@ -17,6 +17,19 @@ class Home extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
+        child: Image.asset('resources/images/Police_car.png'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        backgroundColor: Colors.teal[400],
+        child: Text("Tap"),
+      ),
+    );
+  }
+}
+
+/*
+body: Center(
         child: Text(
           "What is my question?",
           style: TextStyle(
@@ -27,14 +40,7 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        backgroundColor: Colors.teal[400],
-        child: Text("Tap"),
-      ),
-    );
-  }
-}
+ */
 
 
 /*
