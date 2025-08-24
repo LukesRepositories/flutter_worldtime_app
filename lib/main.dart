@@ -17,10 +17,14 @@ class Home extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Icon(
-          Icons.airport_shuttle,
-          color: Colors.teal[400],
-          size: 60,
+        child: ElevatedButton.icon(
+          onPressed: () {},
+          icon: Icon(
+            Icons.airport_shuttle,
+            size: 60.0,
+            color: Colors.teal[400],
+          ),
+          label: Text('Book'),
         ),
       ),
       floatingActionButton: FloatingActionButton(
