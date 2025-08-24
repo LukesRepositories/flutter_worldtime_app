@@ -17,7 +17,11 @@ class Home extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Image.asset('resources/images/Police_car.png'),
+        child: Icon(
+          Icons.airport_shuttle,
+          color: Colors.teal[400],
+          size: 60,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
