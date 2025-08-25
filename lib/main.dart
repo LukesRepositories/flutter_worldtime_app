@@ -16,11 +16,24 @@ class Home extends StatelessWidget {
         title: Text("Hello, world!"),
         centerTitle: true,
       ),
-      body: Container(
-        padding: EdgeInsets.all(30.0),
-        margin: EdgeInsets.all(30.0),
-        color: Colors.grey[400],
-        child: Text('Hellow, world!'),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        children: <Widget>[
+          Icon(
+            Icons.airport_shuttle,
+            size: 60.0,
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Woo'),
+          ),
+          Container(
+            padding: EdgeInsets.all(15.0),
+            child: Text('Container!'),
+            color: Colors.grey,
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
