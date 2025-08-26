@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Home()
+      home: Home()
   ));
 }
 
@@ -17,22 +17,28 @@ class Home extends StatelessWidget {
         centerTitle: true,
       ),
       body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.baseline,
         children: <Widget>[
-          Icon(
-            Icons.airport_shuttle,
-            size: 60.0,
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(20),
+              color: Colors.red,
+              child: Text("1"),
+            ),
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Woo'),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(20),
+              color: Colors.green,
+              child: Text("2"),
+            ),
           ),
-          Container(
-            padding: EdgeInsets.all(15.0),
-            child: Text('Container!'),
-            color: Colors.grey,
+          Expanded(
+            flex: 4,
+            child: Image.asset('resources/images/Police_car.png')
           ),
+
         ],
       ),
       floatingActionButton: FloatingActionButton(
