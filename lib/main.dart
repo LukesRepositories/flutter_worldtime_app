@@ -46,6 +46,7 @@ class Home extends StatelessWidget {
               child: Text("1"),
             ),
           ),
+          SizedBox(width: 20.0),
           Expanded(
             flex: 1,
             child: Container(
