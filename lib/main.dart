@@ -10,8 +10,11 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade800,
+      backgroundColor: Colors.grey[850],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.teal[400],
+        //unselectedItemColor: Colors.teal[400],
+        //selectedItemColor: Colors.teal[600],
         items: [
           BottomNavigationBarItem(
             icon: Icon(
