@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -78,7 +79,7 @@ class _HomeState extends State<Home> {
           ),
           Column(
             children: quotes.map((quote) {
-              return Text(quote);
+              return Text(quote.getQuote());
             }).toList(),
           ), // Nested Column
         ],
@@ -97,10 +98,10 @@ class _HomeState extends State<Home> {
   }
 }
 
-List<String> quotes = [
-  "Float like a butterfly, sting like a bee",
-  "Life is what happens when you are busy making plans",
-  "A fool returns to his folly, like a dog returns to its vomit"
+List<Quote> quotes = [
+  Quote(authorArg: "Muhammad Ali", snippetArg: "Float like a butterfly, sting like a bee"),
+  Quote(authorArg: "John Lennon", snippetArg: "Life is what happens when you are busy making plans"),
+  Quote(authorArg: "The Bible", snippetArg: "A fool returns to his folly, like a dog returns to its vomit")
 ];
 
 
