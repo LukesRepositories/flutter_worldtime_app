@@ -44,32 +44,46 @@ class _HomeState extends State<Home> {
         title: Text("Hello, world!"),
         centerTitle: true,
       ),
-      body: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.all(20),
-              color: Colors.red,
-              child: Text('1'),
-            ),
-          ),
-          SizedBox(width: 20.0),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.all(20),
-              color: Colors.green,
-              child: Text('$incrementerA'),
-            ),
-          ),
-          Expanded(
-            flex: 4,
-            child: Image.asset('resources/images/Police_car.png')
-          ),
+      body: Column(
+        children: [
+          Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  color: Colors.red,
+                  child: Text('1'),
+                ),
+              ),
+              SizedBox(width: 20.0),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  color: Colors.green,
+                  child: Text('$incrementerA'),
+                ),
+              ),
+              Expanded(
+                flex: 4,
+                child: Image.asset('resources/images/Police_car.png')
+              ),
 
+            ],
+          ),
+          Divider(
+            height: 40.0,
+            color: Colors.teal[600],
+          ),
+          Column(
+            children: quotes.map((quote) {
+              return Text(quote);
+            }).toList(),
+          ), // Nested Column
         ],
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           setState(() {
@@ -82,6 +96,12 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+List<String> quotes = [
+  "Float like a butterfly, sting like a bee",
+  "Life is what happens when you are busy making plans",
+  "A fool returns to his folly, like a dog returns to its vomit"
+];
 
 
 /*
