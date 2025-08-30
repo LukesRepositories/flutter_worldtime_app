@@ -5,8 +5,16 @@ void main() {
       home: Home()
   ));
 }
+// Add a divider somewhere like what was shown in the net ninja ninja id project video
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
 
-class Home extends StatelessWidget {
+class _HomeState extends State<Home> {
+
+  int incrementerA = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +51,7 @@ class Home extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(20),
               color: Colors.red,
-              child: Text("1"),
+              child: Text('1'),
             ),
           ),
           SizedBox(width: 20.0),
@@ -52,7 +60,7 @@ class Home extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(20),
               color: Colors.green,
-              child: Text("2"),
+              child: Text('$incrementerA'),
             ),
           ),
           Expanded(
@@ -63,13 +71,18 @@ class Home extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          setState(() {
+            incrementerA += 1;
+          });
+        },
         backgroundColor: Colors.teal[400],
         child: Text("Tap"),
       ),
     );
   }
 }
+
 
 /*
 body: Center(
@@ -84,7 +97,6 @@ body: Center(
         ),
       ),
  */
-
 
 /*
 class MyApp extends StatelessWidget {
