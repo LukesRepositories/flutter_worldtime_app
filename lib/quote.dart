@@ -11,7 +11,7 @@ class Quote {
   }
 
 
-  Card getQuote() {
+  Card getQuote(VoidCallback onDelete) {
     return Card(
       // margin: EdgeInsets.all(20.0),
       child: Padding(
@@ -20,13 +20,17 @@ class Quote {
           children: <Widget>[
             Text(snippet ?? "--No quote available--"),
             SizedBox(height: 5.0),
-            Text(author ?? "Unknown author")
+            Text(author ?? "Unknown author"),
+            ElevatedButton(
+              onPressed: onDelete,
+              child: Icon(
+                Icons.delete
+              ),
+            ),
           ],
         ),
       ),
     );
   }
-
-
 
 }
