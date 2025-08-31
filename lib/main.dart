@@ -74,12 +74,12 @@ class _HomeState extends State<Home> {
             ],
           ),
           Divider(
-            height: 40.0,
+            height: 10.0,
             color: Colors.teal[600],
           ),
           Column(
             children: quotes.map((quote) {
-              return Text(quote.getQuote());
+              return Card(child: quote.getQuote());
             }).toList(),
           ), // Nested Column
         ],
