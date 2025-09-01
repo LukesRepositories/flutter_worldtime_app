@@ -19,6 +19,12 @@ class _ChooseLocationState extends State<ChooseLocation> {
               Navigator.pushNamed(context, '/home');
             },
             child: Text("homeScreen"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },
+            child: Text("loadingScreen"),
           )
 
         ],
