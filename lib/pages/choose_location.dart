@@ -21,25 +21,21 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
   void getData() async {
     Response response = await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
-    Map data = jsonDecode(response.body) as Map;
+    Map data = jsonDecode(response.body);
     print(data);
     setState(() {
       foo1 = data['title'];
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
-    getData();
     return Scaffold(
       body: Column(
         children: [
-          SafeArea(child: Text("Location")),
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/home');
-            },
-            child: Text("homeScreen"),
+          AppBar(
+            backgroundColor: Colors.teal,
+            title: Text("Choose_location"),
           ),
           TextButton(
             onPressed: () {
