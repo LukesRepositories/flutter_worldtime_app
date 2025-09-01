@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'dart:convert';
 
 class ChooseLocation extends StatefulWidget {
   const ChooseLocation({super.key});
@@ -8,8 +10,27 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
+
+  String foo1 = "Loading...";
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  void getData() async {
+    Response response = await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
+    Map data = jsonDecode(response.body) as Map;
+    print(data);
+    setState(() {
+      foo1 = data['title'];
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
+    getData();
     return Scaffold(
       body: Column(
         children: [
@@ -25,8 +46,8 @@ class _ChooseLocationState extends State<ChooseLocation> {
               Navigator.pushNamed(context, '/');
             },
             child: Text("loadingScreen"),
-          )
-
+          ),
+          Text(foo1)
         ],
       ),
     );
