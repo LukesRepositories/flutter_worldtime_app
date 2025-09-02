@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:first_flutter/services/world_time.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
 
@@ -11,33 +12,34 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  String location = "";
-  String time = "";
+  String time = "Loading...";
 
-  void getTime() async {
-    Response response = await get(Uri.parse('https://timeapi.io/api/TimeZone/zone?timeZone=Europe/London'));
-    Map data = jsonDecode(response.body);
-    print(data);
-    location = data['timeZone'];
-    time = data['currentLocalTime'];
-
-    print(location);
-    print(time);
+  void getWorldTime() async {
+    WorldTime worldTimeInstance = WorldTime(locationArg: "London", urlArg: "Europe/London");
+    await worldTimeInstance.getTime();
+    setState(() {
+      time = worldTimeInstance.timeStr;
+    });
   }
 
   @override
-  void initState() {
+  void initState() async {
     // TODO: implement initState
     super.initState();
-    getTime();
+    getWorldTime();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppBar(
-        backgroundColor: Colors.teal,
-        title: Text("Loading"),
+      body: Column(
+        children: [
+          AppBar(
+            backgroundColor: Colors.teal,
+            title: Text("LoadingScreen"),
+          ),
+          Text(time),
+        ],
       ),
 
     );
