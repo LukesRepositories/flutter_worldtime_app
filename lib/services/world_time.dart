@@ -15,20 +15,29 @@ class WorldTime {
     url = urlArg ?? "";
   }
 
+
+
   Future<void> getTime() async {
-    Response response = await get(Uri.parse('https://timeapi.io/api/TimeZone/zone?timeZone=$url'));
-    Map data = jsonDecode(response.body);
-    print(data);
-    location = data['timeZone'];
-    timeStr = data['currentLocalTime'];
-    // offsetSeconds = data['currentUtcOffset']['seconds'];
 
-    print(location);
-    print(timeStr);
-    // print(offsetSeconds);
+    try {
+      Response response = await get(Uri.parse('https://timeapi.io/api/TimeZone/zone?timeZone=$url'));
+      Map data = jsonDecode(response.body);
+      print(data);
+      location = data['timeZone'];
+      timeStr = data['currentLocalTime'];
+      // offsetSeconds = data['currentUtcOffset']['seconds'];
 
-    time = DateTime.tryParse(timeStr);
-    // Remember to add offset later
+      print(location);
+      print(timeStr);
+      // print(offsetSeconds);
+
+      time = DateTime.tryParse(timeStr);
+      // Remember to add offset later
+    } catch(e) {
+      timeStr = "There was an error loading the API data";
+    }
+
+
   }
 
 }
