@@ -15,9 +15,10 @@ class _LoadingState extends State<Loading> {
   void getWorldTime() async {
     WorldTime worldTimeInstance = WorldTime(locationArg: "London", urlArg: "Europe/London");
     await worldTimeInstance.getTime();
-    setState(() {
-      time = worldTimeInstance.timeStr;
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'time': worldTimeInstance.timeStr,
     });
+
   }
 
   @override
