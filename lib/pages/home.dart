@@ -17,18 +17,32 @@ class _HomeState extends State<Home> {
     data = ModalRoute.of(context)!.settings.arguments as Map;
 
     return Scaffold(
-      body: Column(
-        children: [
-          SafeArea(child: Text("Home")),
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/location');
-            },
-            child: Text("locationScreen"),
-          ),
-          Text(data['time'])
-
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            SafeArea(child: Text("Home")),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, '/location');
+              },
+              icon: Icon(Icons.edit_location),
+              label: Text("Choose Location"),
+            ),
+            SizedBox(height: 20.0),
+            Text(
+              data['time'],
+              style: TextStyle(
+                fontSize: 60.0,
+              ),
+            ),
+            Text(
+              data['date'],
+              style: TextStyle(
+                fontSize: 30.0,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

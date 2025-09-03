@@ -1,12 +1,13 @@
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime {
 
   String location = "";
   String timeStr = "";
+  String dateStr = "";
   // String offsetSeconds = "";
-  DateTime? time;
   String flagURL = "";
   String url = "";
 
@@ -31,8 +32,11 @@ class WorldTime {
       print(timeStr);
       // print(offsetSeconds);
 
-      time = DateTime.tryParse(timeStr);
+      DateTime? time = DateTime.tryParse(timeStr);
       // Remember to add offset later
+
+      timeStr = DateFormat.jm().format(time!);
+      dateStr = DateFormat('dd-MMM-yyyy').format(time);
     } catch(e) {
       timeStr = "There was an error loading the API data";
     }
