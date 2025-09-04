@@ -11,10 +11,10 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  String time = "Loading...";
+  Map data = {};
 
   void getWorldTime() async {
-    WorldTime worldTimeInstance = WorldTime(locationArg: "London", urlArg: "Europe/London");
+    WorldTime worldTimeInstance = WorldTime(locationArg: data['locationArg'], urlArg: data['urlArg']);
     await worldTimeInstance.getTime();
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': worldTimeInstance.location,
@@ -28,11 +28,15 @@ class _LoadingState extends State<Loading> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getWorldTime();
   }
 
   @override
   Widget build(BuildContext context) {
+
+    data = ModalRoute.of(context)!.settings.arguments as Map;
+    getWorldTime();
+    Future.delayed(Duration(seconds: 2));
+
     return Scaffold(
       body: Center(
         child: SpinKitCubeGrid(

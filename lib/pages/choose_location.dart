@@ -1,4 +1,3 @@
-import 'package:first_flutter/services/world_time.dart';
 import 'package:flutter/material.dart';
 
 class ChooseLocation extends StatefulWidget {
@@ -10,25 +9,19 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
 
-  List<WorldTime> locations = [
-    WorldTime(locationArg: "London", urlArg: "Europe/London"),
-    WorldTime(locationArg: "Paris", urlArg: "Europe/Paris"),
-    WorldTime(locationArg: "Berlin", urlArg: "Europe/Berlin"),
-    WorldTime(locationArg: "Cairo", urlArg: "Africa/Cairo"),
-    WorldTime(locationArg: "Lagos", urlArg: "Africa/Lagos"),
-    WorldTime(locationArg: "Nairobi", urlArg: "Africa/Nairobi"),
-    WorldTime(locationArg: "Tokyo", urlArg: "Asia/Tokyo"),
-    WorldTime(locationArg: "Bangkok", urlArg: "Asia/Bangkok")
+  List<Map> locations = [
+    {'locationArg': "London", 'urlArg': "Europe/London"},
+    {'locationArg': "Paris", 'urlArg': "Europe/Paris"},
+    {'locationArg': "Berlin", 'urlArg': "Europe/Berlin"},
+    {'locationArg': "Cairo", 'urlArg': "Africa/Cairo"},
+    {'locationArg': "Lagos", 'urlArg': "Africa/Lagos"},
+    {'locationArg': "Nairobi", 'urlArg': "Africa/Nairobi"},
+    {'locationArg': "Tokyo", 'urlArg': "Asia/Tokyo"},
+    {'locationArg': "Bangkok", 'urlArg': "Asia/Bangkok"}
   ];
 
   void updateLocation(index) async {
-    WorldTime worldTimeInstance = locations[index];
-    await worldTimeInstance.getTime();
-    Navigator.pop(context, {
-    'location': worldTimeInstance.location,
-    'time': worldTimeInstance.timeStr,
-    'date': worldTimeInstance.dateStr,
-    });
+    Navigator.pushNamed(context, '/loading', arguments: locations[index]);
   }
 
   @override
@@ -42,7 +35,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
               onTap: () {
                 updateLocation(index);
               },
-              title: Text(locations[index].location),
+              title: Text(locations[index]['locationArg']),
               leading: CircleAvatar(backgroundImage: AssetImage('resources/images/Police_car.png'),),
               tileColor: Colors.teal[100],
             ),

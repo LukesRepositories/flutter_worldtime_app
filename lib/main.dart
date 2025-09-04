@@ -5,9 +5,9 @@ import 'package:first_flutter/pages/choose_location.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/',
+    initialRoute: '/location',
     routes: {
-      '/': (context) => Loading(),
+      '/loading': (context) => Loading(),
       '/home': (context) => Home(),
       '/location': (context) => ChooseLocation(),
     },

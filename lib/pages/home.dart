@@ -23,16 +23,7 @@ class _HomeState extends State<Home> {
             SafeArea(child: Text("Home")),
             ElevatedButton.icon(
               onPressed: () async {
-                dynamic result = await Navigator.pushNamed(context, '/location');
-                if(result != null) {
-                  setState(() {
-                    data = {
-                      'location': result['location'],
-                      'time': result['time'],
-                      'date': result['date'],
-                    };
-                  });
-                }
+                Navigator.pop(context);
               },
               icon: Icon(Icons.edit_location),
               label: Text("Choose Location"),
