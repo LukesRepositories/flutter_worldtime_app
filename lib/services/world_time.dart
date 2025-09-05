@@ -23,7 +23,7 @@ class WorldTime {
     try {
       Response response = await get(Uri.parse('https://timeapi.io/api/TimeZone/zone?timeZone=$url'));
       Map data = jsonDecode(response.body);
-      print(data);
+      
       timeStr = data['currentLocalTime'];
       // offsetSeconds = data['currentUtcOffset']['seconds'];
 

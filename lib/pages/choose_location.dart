@@ -27,20 +27,34 @@ class _ChooseLocationState extends State<ChooseLocation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: locations.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              onTap: () {
-                updateLocation(index);
+      body: Column(
+        children: [
+          SafeArea(
+            child: Text(
+              "Choose Location",
+               style: TextStyle(
+                 fontSize: 40.0
+               ),
+            )
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: locations.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: ListTile(
+                    onTap: () {
+                      updateLocation(index);
+                    },
+                    title: Text(locations[index]['locationArg']),
+                    leading: CircleAvatar(backgroundImage: AssetImage('resources/images/Police_car.png'),),
+                    tileColor: Colors.teal[100],
+                  ),
+                );
               },
-              title: Text(locations[index]['locationArg']),
-              leading: CircleAvatar(backgroundImage: AssetImage('resources/images/Police_car.png'),),
-              tileColor: Colors.teal[100],
             ),
-          );
-        },
+          ),
+        ],
       )
     );
   }

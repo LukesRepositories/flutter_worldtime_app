@@ -12,30 +12,30 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
 
   Map data = {};
+  bool shouldRun = true;
 
-  void getWorldTime() async {
-    WorldTime worldTimeInstance = WorldTime(locationArg: data['locationArg'], urlArg: data['urlArg']);
+  void getWorldTime(String location, String url) async {
+    await Future.delayed(Duration(seconds: 2));
+
+    WorldTime worldTimeInstance = WorldTime(locationArg: location, urlArg: url);
     await worldTimeInstance.getTime();
+
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': worldTimeInstance.location,
       'time': worldTimeInstance.timeStr,
       'date': worldTimeInstance.dateStr,
     });
-
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
 
     data = ModalRoute.of(context)!.settings.arguments as Map;
-    getWorldTime();
-    Future.delayed(Duration(seconds: 2));
+
+    if(shouldRun) {
+      getWorldTime(data['locationArg'], data['urlArg']);
+      shouldRun = false;
+    }
 
     return Scaffold(
       body: Center(
@@ -45,5 +45,6 @@ class _LoadingState extends State<Loading> {
         )
       )
     );
+
   }
 }
