@@ -10,14 +10,14 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
 
   List<Map> locations = [
-    {'locationArg': "London", 'urlArg': "Europe/London"},
-    {'locationArg': "Paris", 'urlArg': "Europe/Paris"},
-    {'locationArg': "Berlin", 'urlArg': "Europe/Berlin"},
-    {'locationArg': "Cairo", 'urlArg': "Africa/Cairo"},
-    {'locationArg': "Lagos", 'urlArg': "Africa/Lagos"},
-    {'locationArg': "Nairobi", 'urlArg': "Africa/Nairobi"},
-    {'locationArg': "Tokyo", 'urlArg': "Asia/Tokyo"},
-    {'locationArg': "Bangkok", 'urlArg': "Asia/Bangkok"}
+    {'locationArg': "London", 'urlArg': "Europe/London", 'flag': 'united-kingdom.png'},
+    {'locationArg': "Paris", 'urlArg': "Europe/Paris", 'flag': 'france.png'},
+    {'locationArg': "Berlin", 'urlArg': "Europe/Berlin", 'flag': 'germany.png'},
+    {'locationArg': "Cairo", 'urlArg': "Africa/Cairo", 'flag': 'egypt.png'},
+    {'locationArg': "Lagos", 'urlArg': "Africa/Lagos", 'flag': 'nigeria.png'},
+    {'locationArg': "Nairobi", 'urlArg': "Africa/Nairobi", 'flag': 'kenya.png'},
+    {'locationArg': "Tokyo", 'urlArg': "Asia/Tokyo", 'flag': 'japan.png'},
+    {'locationArg': "Bangkok", 'urlArg': "Asia/Bangkok", 'flag': 'thailand.png'}
   ];
 
   void updateLocation(index) async {
@@ -52,7 +52,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
                       updateLocation(index);
                     },
                     title: Text(locations[index]['locationArg']),
-                    leading: CircleAvatar(backgroundImage: AssetImage('resources/images/Police_car.png'),),
+                    leading: CircleAvatar(backgroundImage: AssetImage('resources/images/${locations[index]['flag']}')),
                     tileColor: Colors.teal[100],
                   ),
                 );
