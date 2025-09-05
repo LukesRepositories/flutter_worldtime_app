@@ -29,16 +29,21 @@ class _ChooseLocationState extends State<ChooseLocation> {
     return Scaffold(
       body: Column(
         children: [
-          SafeArea(
-            child: Text(
-              "Choose Location",
-               style: TextStyle(
-                 fontSize: 40.0
-               ),
+          Container(
+            margin: EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
+            child: RichText(
+              text: TextSpan(
+                text: "Choose Location",
+                style: TextStyle(
+                  fontSize: 40.0,
+                  color: Colors.black,
+                ),
+              ),
             )
           ),
           Expanded(
             child: ListView.builder(
+              shrinkWrap: true,
               itemCount: locations.length,
               itemBuilder: (context, index) {
                 return Card(

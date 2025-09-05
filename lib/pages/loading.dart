@@ -15,7 +15,7 @@ class _LoadingState extends State<Loading> {
   bool shouldRun = true;
 
   void getWorldTime(String location, String url) async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
 
     WorldTime worldTimeInstance = WorldTime(locationArg: location, urlArg: url);
     await worldTimeInstance.getTime();
