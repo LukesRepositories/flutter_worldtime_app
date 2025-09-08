@@ -1,16 +1,10 @@
-# first_flutter
+# flutter_worldtime_app
 
-A new Flutter project.
+This was the first flutter application I created, it was a chance for me to both use flutter and get a sense of mobile app development.
 
-## Getting Started
+## Development
 
-This project is a starting point for a Flutter application.
+I developed this application in Android Studio. The majority of the work was done inside the lib folder, the resource folder I created to store image and font assets. 
+The pubspec.yaml file was used to manage resources and dependencies.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I used the API https://timeapi.io/api to get the data on the various timezones.
