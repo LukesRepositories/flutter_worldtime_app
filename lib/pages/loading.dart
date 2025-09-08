@@ -12,7 +12,7 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
 
   Map data = {};
-  bool shouldRun = true;
+  bool _shouldRun = true;
 
   void getWorldTime(String location, String url) async {
     await Future.delayed(Duration(seconds: 1));
@@ -28,15 +28,20 @@ class _LoadingState extends State<Loading> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
 
     data = ModalRoute.of(context)!.settings.arguments as Map;
 
-    if(shouldRun) {
+    if(_shouldRun) {
       getWorldTime(data['locationArg'], data['urlArg']);
-      shouldRun = false;
+      _shouldRun = false;
     }
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: SpinKitCubeGrid(
@@ -45,6 +50,5 @@ class _LoadingState extends State<Loading> {
         )
       )
     );
-
   }
 }
